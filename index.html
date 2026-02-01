@@ -133,12 +133,35 @@
     }, { passive: false });
 
     yesBtn.addEventListener("click", () => {
-      success.style.display = "block";
-      yesBtn.textContent = "Yay! 💘";
-      noBtn.textContent  = "Too late 😅";
-      yesBtn.disabled = true;
-      noBtn.disabled = true;
+  success.style.display = "block";
+  yesBtn.textContent = "Yay! 💘";
+  noBtn.textContent  = "Too late 😅";
+  yesBtn.disabled = true;
+  noBtn.disabled = true;
+
+  // 🎉 Confetti burst (multiple pops)
+  const duration = 1200;
+  const end = Date.now() + duration;
+
+  (function frame() {
+    confetti({
+      particleCount: 6,
+      startVelocity: 30,
+      spread: 360,
+      ticks: 70,
+      origin: { x: Math.random(), y: Math.random() * 0.4 }
     });
+    if (Date.now() < end) requestAnimationFrame(frame);
+  })();
+
+  // Big center burst
+  confetti({
+    particleCount: 180,
+    spread: 80,
+    startVelocity: 45,
+    origin: { x: 0.5, y: 0.6 }
+  });
+});
 
     moveNoButton();
   </script>
