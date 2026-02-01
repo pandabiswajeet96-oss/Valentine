@@ -1,164 +1,146 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.2">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Valentine?</title>
+
+  <style>
+    :root { --bg1:#ffdde1; --bg2:#ee9ca7; }
+    * { box-sizing: border-box; }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at top, var(--bg1), var(--bg2));
+    }
+
+    .card{
+      width:min(520px, 92vw);
+      background: rgba(255,255,255,.85);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.15);
+      text-align:center;
+      backdrop-filter: blur(8px);
+    }
+
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4vw, 36px);
+    }
+
+    p{
+      margin: 0 0 18px;
+      opacity:.8;
+    }
+
+    .arena{
+      position: relative;
+      height: 220px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(0,0,0,.06);
+      overflow: hidden;
+      margin-top: 16px;
+    }
+
+    button{
+      border:0;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0,0,0,.12);
+      user-select: none;
+      touch-action: manipulation;
+    }
+
+    #yes{
+      background: #22c55e;
+      color: white;
+      position: absolute;
+      left: 50%;
+      top: 55%;
+      transform: translate(-110%, -50%);
+    }
+
+    #no{
+      background: #ef4444;
+      color: white;
+      position: absolute;
+      left: 50%;
+      top: 55%;
+      transform: translate(10%, -50%);
+    }
+
+    .success{
+      display:none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(34,197,94,.12);
+      border: 1px solid rgba(34,197,94,.25);
+      font-weight: 600;
+    }
   </style>
 </head>
+
 <body>
-<p class="p1">&lt;!doctype html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Valentine?&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>:root { --bg1:#ffdde1; --bg2:#ee9ca7; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>* { box-sizing: border-box; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:0; min-height:100vh; display:grid; place-items:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: radial-gradient(circle at top, var(--bg1), var(--bg2));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:min(520px, 92vw);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.85);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 28px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 20px 60px rgba(0,0,0,.15);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(8px);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>h1{ margin: 0 0 10px; font-size: clamp(26px, 4vw, 36px); }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>p{ margin: 0 0 18px; opacity:.8; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.arena{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height: 220px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255,255,255,.55);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(0,0,0,.06);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>button{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 12px 18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 10px 20px rgba(0,0,0,.12);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>user-select: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>touch-action: manipulation;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>#yes{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #22c55e;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>left: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>top: 55%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translate(-110%, -50%);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>#no{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #ef4444;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>left: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>top: 55%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transform: translate(10%, -50%);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.success{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 14px 16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(34,197,94,.12);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(34,197,94,.25);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.small{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>opacity:.65;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card" id="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Will you be my Valentine? 💘&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Choose wisely 😄&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="arena" id="arena"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button id="yes" aria-label="Yes"&gt;Yes 💖&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button id="no" aria-label="No"&gt;No 🙃&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="success" id="success"&gt;It’s a date! 🥰💐&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="small"&gt;Tip: works best on mobile + desktop.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const arena = document.getElementById("arena");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const noBtn<span class="Apple-converted-space">  </span>= document.getElementById("no");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const yesBtn = document.getElementById("yes");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const success = document.getElementById("success");</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function moveNoButton() {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>// Get arena size and button size</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const a = arena.getBoundingClientRect();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const b = noBtn.getBoundingClientRect();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>// Random position that keeps the whole button inside arena</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const padding = 10;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const maxX = a.width<span class="Apple-converted-space">  </span>- b.width<span class="Apple-converted-space">  </span>- padding;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const maxY = a.height - b.height - padding;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>const x = clamp(Math.random() * maxX, padding, maxX);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const y = clamp(Math.random() * maxY, padding, maxY);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>// Place with top/left (avoid transform after first move)</p>
-<p class="p1"><span class="Apple-converted-space">      </span>noBtn.style.transform = "none";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>noBtn.style.left = `${x}px`;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>noBtn.style.top<span class="Apple-converted-space">  </span>= `${y}px`;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>noBtn.style.position = "absolute";</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Desktop: run away on hover</p>
-<p class="p1"><span class="Apple-converted-space">    </span>noBtn.addEventListener("mouseenter", moveNoButton);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Mobile: run away when they try to tap</p>
-<p class="p1"><span class="Apple-converted-space">    </span>noBtn.addEventListener("touchstart", (e) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>e.preventDefault();<span class="Apple-converted-space">      </span>// stop click</p>
-<p class="p1"><span class="Apple-converted-space">      </span>moveNoButton();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}, { passive: false });</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Also dodge if they get close (optional, fun)</p>
-<p class="p1"><span class="Apple-converted-space">    </span>arena.addEventListener("mousemove", (e) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const nb = noBtn.getBoundingClientRect();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const distX = Math.abs(e.clientX - (nb.left + nb.width/2));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const distY = Math.abs(e.clientY - (nb.top<span class="Apple-converted-space">  </span>+ nb.height/2));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (distX &lt; 60 &amp;&amp; distY &lt; 40) moveNoButton();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>yesBtn.addEventListener("click", () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>success.style.display = "block";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>yesBtn.disabled = true;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>noBtn.disabled = true;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>yesBtn.textContent = "Yay! 💘";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>noBtn.textContent<span class="Apple-converted-space">  </span>= "Too late 😅";</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Start with one playful move so "No" isn't static</p>
-<p class="p1"><span class="Apple-converted-space">    </span>moveNoButton();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <div class="card">
+    <h1>Will you be my Valentine? 💘</h1>
+    <p>Choose wisely 😄</p>
+
+    <div class="arena" id="arena">
+      <button id="yes">Yes 💖</button>
+      <button id="no">No 🙃</button>
+    </div>
+
+    <div class="success" id="success">It’s a date! 🥰💐</div>
+  </div>
+
+  <script>
+    const arena = document.getElementById("arena");
+    const noBtn  = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const success = document.getElementById("success");
+
+    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+
+    function moveNoButton() {
+      const a = arena.getBoundingClientRect();
+      const b = noBtn.getBoundingClientRect();
+      const padding = 10;
+
+      const maxX = a.width  - b.width  - padding;
+      const maxY = a.height - b.height - padding;
+
+      const x = clamp(Math.random() * maxX, padding, maxX);
+      const y = clamp(Math.random() * maxY, padding, maxY);
+
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top  = `${y}px`;
+      noBtn.style.transform = "none";
+    }
+
+    noBtn.addEventListener("mouseenter", moveNoButton);
+    noBtn.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      moveNoButton();
+    }, { passive: false });
+
+    yesBtn.addEventListener("click", () => {
+      success.style.display = "block";
+      yesBtn.textContent = "Yay! 💘";
+      noBtn.textContent  = "Too late 😅";
+      yesBtn.disabled = true;
+      noBtn.disabled = true;
+    });
+
+    moveNoButton();
+  </script>
 </body>
 </html>
